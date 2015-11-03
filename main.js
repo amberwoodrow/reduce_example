@@ -44,3 +44,29 @@ console.log("c", c);
 console.log("d", d);
 console.log("e", e);
 console.log("f", f);
+
+
+var total = [0, 1, 2, 3].reduce(function(a, b) {
+  return a + b;
+});
+// total == 6
+
+
+// Flatten an array of arrays
+var flattened = [[0, 1], [2, 3], [4, 5]].reduce(function(a, b) {
+  return a.concat(b);
+}, []);
+// flattened is [0, 1, 2, 3, 4, 5]
+
+[0, 1, 2, 3, 4].reduce(function(previousValue, currentValue, index, array) {
+  return previousValue + currentValue;
+}, 10);
+
+//             previousValue currentValue  index array           return value
+// first call  10            0             0     [0, 1, 2, 3, 4] 10
+// second call 10            1             1     [0, 1, 2, 3, 4] 11
+// third call  11            2             2     [0, 1, 2, 3, 4] 13
+// fourth call 13            3             3     [0, 1, 2, 3, 4] 16
+// fifth call  16            4             4     [0, 1, 2, 3, 4] 20
+
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
